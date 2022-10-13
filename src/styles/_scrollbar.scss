@@ -1,0 +1,24 @@
+$scrollbar-color: linear-gradient(180deg, rgb(148, 22, 47), #f93);
+
+// overflow
+.overflowY {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $scrollbar-color #ffffff;
+}
+
+/* scrollbar for Chrome */
+.overflowY::-webkit-scrollbar {
+  width: 8px;
+  background: #ffffff;
+  border-radius: 6px;
+}
+.overflowY::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  // background: #ff4081;
+  background: $scrollbar-color;
+}
+.overflowY::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background: #ffffff;
+}

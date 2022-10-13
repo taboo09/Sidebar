@@ -1,0 +1,59 @@
+// mat stepper global rules
+.mat-stepper-vertical {
+  background: transparent;
+
+  .mat-step-header {
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .mat-vertical-content {
+    padding: 0 24px 12px 24px;
+  }
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  position: fixed;
+}
+
+// set background to transparent
+mat-drawer-container,
+.mat-drawer-container {
+  background-color: transparent !important;
+}
+
+.mat-drawer-content {
+  overflow-x: hidden !important;
+}
+
+/* global settings for mat stepper */
+mat-stepper.timeline {
+  .mat-vertical-content-container .mat-vertical-stepper-content {
+    visibility: visible !important;
+    height: auto !important;
+  }
+
+  .mat-step-header {
+    pointer-events: none;
+  }
+
+  &.succeeded {
+    .mat-step-header .mat-step-icon-state-edit,
+    .mat-step-header .mat-step-icon-selected {
+      background-color: #2ECC40 !important;
+    }
+  }
+  &.cancelled {
+    .mat-step-header .mat-step-icon-state-edit,
+    .mat-step-header .mat-step-icon-selected {
+      background-color: #FF4136 !important;
+    }
+  }
+  &.processing {
+    .mat-step-header .mat-step-icon-state-edit,
+    .mat-step-header .mat-step-icon-selected {
+      background-color: #FF851B !important;
+    }
+  }
+}

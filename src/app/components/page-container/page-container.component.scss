@@ -1,0 +1,189 @@
+.stocks-page-container {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+
+  
+  .app-page-container {
+    box-sizing: border-box;
+    // height: 100vh;
+    // height: calc(100vh - 71px);
+  }
+  
+  .app-page-container.not-logged-in {
+    height: 100vh;
+  }
+  
+  .site-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .stocks-sidenav {
+    width: 245px;
+    height: 100%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .stocks-logo {
+    padding: 1.5rem;
+    align-self: center;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+    .stocks-logo-text {
+      height: 18px;
+      font-size: 27px;
+      padding-left: 2px;
+      line-height: 20px;
+      position: relative;
+    }
+  
+    .stocks-logo-text::after {
+      display: none;
+      content: '';
+      background-image: url('../../../assets/images/moustache.svg');
+      width: 50px;
+      height: 25px;
+      position: absolute;
+      top: 60%;
+      left: -6px;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      background-size: 100%;
+    }
+  
+  .stocks-nav-button {
+    align-self: center;
+    text-align: left;
+    padding: 1rem;
+    display: flex;
+    border-right: 5px solid transparent;
+    user-select: none;
+  
+    p {
+      margin: 0;
+      padding: 0 1rem;
+      font-size: 1rem;
+    }
+  
+    .stocks-nav-button-icon {
+      align-self: center;
+      width: 20px;
+      text-align: left;
+  
+      fa-icon {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+  
+  .stocks-nav-button:hover,
+  .stocks-nav-button.odin-active {
+    cursor: pointer;
+    border-right: 5px solid #f03;
+  }
+  
+  .stocks-sidenav-info {
+    font-size: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    align-items: flex-end;
+    justify-content: center;
+    height: 73px;
+    background-color: black;
+  
+    mat-slide-toggle {
+      display: block;
+      margin: auto;
+    }
+  
+    p {
+      width: 100%;
+      background: black;
+      color: white;
+      margin: 0;
+      font-weight: bold;
+      font-size: 13px;
+    }
+  }
+  
+  .sidebar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobile-header {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    height: 73px;
+    padding: 0 1em;
+    position: relative;
+    z-index: 10;
+  
+    #page-title {
+      font-size: 25px;
+      font-weight: 400;
+  
+      p {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  .header-actions {
+    margin: 0 0 0 auto;
+  }
+  
+  #burger-close,
+  #burger-open {
+    align-self: center;
+  }
+  
+  #user-icon-button {
+    font-size: 20px;
+  }
+  
+  ::ng-deep .mat-drawer-side {
+    border-right: none;
+  }
+  
+  .small-screen-warning {
+    display: none;
+  }
+  
+  @media (max-width: 600px) {
+    .stocks-logo {
+      text-align: center;
+    }
+  }
+  
+  @media only screen and (max-width: 350px) {
+    .small-screen-warning {
+      display: block;
+      padding: 10px;
+      background-color: orange;
+      box-sizing: border-box;
+  
+      p {
+        text-align: center;
+        margin: 0;
+        color: black;
+        font-size: 18px;
+      }
+    }
+  }
+}

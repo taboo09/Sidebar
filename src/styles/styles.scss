@@ -1,0 +1,129 @@
+/* You can add global styles to this file, and also import other style files */
+@import './mat-overridden-styles';
+@import './colours';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+// @font-face {
+//   font-family: 'ConthraxSb-Regular';
+//   src: url('/assets/fonts/conthraxsb-regular.woff2') format('woff2'),
+//     url('/assets/fonts/conthraxsb-regular.woff') format('woff');
+// }
+// @font-face {
+//   font-family: 'OCR-B';
+//   src: url('/assets/fonts/OCR-B.woff2') format('woff2'),
+//     url('/assets/fonts/OCR-B.woff') format('woff');
+// }
+
+
+body {
+  margin: 0;
+  font-family: montserrat !important;
+  overflow-x: hidden;
+  // -webkit-overflow-scrolling: touch
+}
+
+html,
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+* {
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.page-height {
+  max-height: calc(100vh - 73px);
+  height: 100%;
+  overflow: hidden; // stops scrolling of application
+}
+
+// pages should use this to stop the header from scrolling
+.full-height {
+  max-height: 100%;
+  height: 100%;
+}
+
+.stocks-font {
+  font-family: ConthraxSb-Regular, montserrat !important;
+}
+
+.card-font {
+  font-family: OCR-B !important;
+}
+
+.max-width {
+  max-width: 1000px;
+  display: block;
+  margin: auto;
+}
+
+.flex-space {
+  flex: 1 1 auto;
+}
+
+.not-desktop {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .not-desktop {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
+.hr-light {
+  height: 1px;
+  width: 100%;
+  background-color: #cbd5e1;
+}
+
+.app-widget {
+  background-color: $componentBackground;
+}
+
+.skeleton {
+  .skeleton-item {
+    overflow: hidden;
+    position: relative;
+    background-color: #dddbdd;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(#fff, 0) 0,
+        rgba(#fff, 0.2) 20%,
+        rgba(#fff, 0.5) 60%,
+        rgba(#fff, 0)
+      );
+      animation: shimmer 2s infinite;
+      content: '';
+    }
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// transactions page -> filters drawer
+app-transactions-list-page {
+  position: relative !important;
+}

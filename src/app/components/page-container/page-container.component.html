@@ -1,0 +1,61 @@
+<mat-sidenav-container autosize class="stocks-page-container" *ngIf="authenticatedView; else NonAuthenticatedView">
+    <mat-sidenav #sidenav [mode]="sidebarMode" [opened]="burgerMenuOpen">
+      <div class="stocks-sidenav">
+        <div class="sidebar-header">
+          <div class="app-logo">
+            <img class="stocks-logo-image" height="20" src="/assets/images/logo.png" />
+            <span class="stocks-font stocks-logo-text">Stocks</span>
+          </div>
+        </div>
+        <div class="stocks-navigation">
+          <ng-container
+            *ngFor="let navRoute of navigationService.navigationRoutes"
+          >
+            <div
+              [attr.data-test]="navRoute.safeRoute"
+              class="stocks-nav-button contrast-hover"
+              [class.odin-active]="navRoute.active"
+              (click)="navigate(navRoute)"
+            >
+              <div class="stocks-nav-button-icon">
+                <fa-icon [icon]="navRoute.icon" size="lg"></fa-icon>
+              </div>
+              <p>{{ navRoute.viewName }}</p>
+            </div>
+          </ng-container>
+        </div>
+  
+        <!-- Remove to center nav -->
+        <div style="flex: 1 1 auto;"></div>
+  
+        <div class="stocks-sidenav-info dark-panel">
+          <p>{{ versionNumber | slice:0:11 }}</p>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="stocks-page-content app-page-container">
+      <div class="site-container">
+        <div class="mobile-header main-panel">
+          <div id="page-title">
+            <p>{{ navigationService.currentRoute.viewName }}</p>
+          </div>
+          <div class="header-actions">
+            <div id="burger-open" class="not-desktop">
+              <button mat-icon-button (click)="sidenav.open()">
+                <fa-icon [icon]="menuIcon"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="app-page-container app-content-container page-height">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <ng-template #NonAuthenticatedView>
+    <div class="app-page-container not-logged-in app-content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-template>
+  
